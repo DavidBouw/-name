@@ -3,9 +3,9 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 Home Page2
 <table>
-<c:forEach var="park" items="${parks}" >
+<c:forEach var="park" items="${allParks}" >
 <tr>
-    <td>${park.Name} ${park.image}</td>
+    <td>${park.getName()} <img src="img/parks/${park.getCode()}.jpg"></td>
 </tr>
 </c:forEach>
 </table>

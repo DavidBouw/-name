@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.techelevator.model.Park;
 import com.techelevator.model.ParkDao;
-import com.techelevator.ssg.model.forum.ForumDao;
 
 @Controller
 public class MainController {
@@ -18,14 +17,14 @@ public class MainController {
 	private ParkDao parkDao;
 	
 	@RequestMapping(path= {"/","home"})
-	public String displayHomePage() {
+	public String displayHomePage(HttpServletRequest request) {
+		ArrayList<Park> allParks = (ArrayList) parkDao.getAllParks();
+		request.setAttribute("allParks", allParks);
 		return "home";
 	}
 	
 	@RequestMapping(path= {"/park_detail","/park_details"})
 	public String displayParkDetails(HttpServletRequest request) {
-//		List<Park> currPark = new List {parkDao.getAllParks()};
-		request.setAttribute("currPark", park);
 		return "park_detail";
 	}
 	
