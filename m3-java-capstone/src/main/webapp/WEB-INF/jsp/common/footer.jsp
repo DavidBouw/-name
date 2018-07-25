@@ -1,3 +1,3 @@
-<p class="copyright">Copyright National Parks 2018</p>
+<p class="copyright">Copyright National Park Geek 2018</p>
 </body>
 </html>
