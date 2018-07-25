@@ -1,5 +1,13 @@
 package com.techelevator.model;
 
-public class JDBCSurveyDao {
+import java.util.List;
+
+public class JDBCSurveyDao implements SurveyDao{
+
+	@Override
+	public List<Survey> getAllSurveys() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
