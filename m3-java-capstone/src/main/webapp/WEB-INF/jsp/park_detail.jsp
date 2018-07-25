@@ -2,4 +2,5 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 Park Detail
+${park.getName()}
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
