@@ -1,6 +1,7 @@
 package com.techelevator.model.jdbc;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -24,21 +25,28 @@ public class JDBCSurveyDao implements SurveyDao{
 	}
 
 	@Override
-	public List<Survey> getAllSurveys() {
-		List<Survey> allSurveys = new ArrayList<>();
-		String sqlSelectAllSurveys = "SELECT * FROM survey_result";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllSurveys);
+	public LinkedHashMap<String, Integer> getFavorites() {
+		LinkedHashMap<String, Integer> allFavorites = new LinkedHashMap<String, Integer>();
+		String sqlSelectAllFavorites = "SELECT s.parkcode, COUNT(surveyid) AS surveyCount " + 
+				"FROM survey_result AS s " + 
+				"GROUP BY s.parkcode " + 
+				"ORDER BY surveyCount DESC;";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllFavorites);
 		
 		while(results.next()) {
-			allSurveys.add(mapRowToSurvey(results));
+			allFavorites.put(results.getString("parkcode"), results.getInt("surveycount"));
 		}
 		
-		return allSurveys;
+		return allFavorites;
 	}
 	
 	@Override
-	public void saveSurvey(Survey survey) {
-		
+	public void saveSurvey(String name, String emailAddress,
+			String state, String activityLevel) {
+		String sqlSelectAllFavorites = "INSERT INTO survey_result (parkcode, emailaddress, state, activitylevel) VALUES (?, ?, ?, ?)";
+		jdbcTemplate.queryForObject(sqlSelectAllFavorites, Integer.class,
+				name, emailAddress, state, activityLevel);
+		jdbcTemplate.queryForRowSet(sqlSelectAllFavorites);
 	}
 	
 	private Survey mapRowToSurvey(SqlRowSet results) {
