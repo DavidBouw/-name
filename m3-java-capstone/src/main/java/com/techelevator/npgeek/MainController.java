@@ -1,6 +1,7 @@
 package com.techelevator.npgeek;
 import java.awt.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,14 +18,14 @@ public class MainController {
 	private ParkDao parkDao;
 	
 	@RequestMapping(path= {"/","home"})
-	public String displayHomePage() {
+	public String displayHomePage(HttpServletRequest request) {
+		HashMap<String, Park> allParks = (HashMap) parkDao.getAllParks();
+		request.setAttribute("allParks", allParks);
 		return "home";
 	}
 	
-	@RequestMapping(path= {"/park_detail","/park_details"})
+	@RequestMapping(path= {"/park_detail", "park_details"})
 	public String displayParkDetails(HttpServletRequest request) {
-//		List<Park> currPark = new List {parkDao.getAllParks()};
-		request.setAttribute("currPark", park);
 		return "park_detail";
 	}
 	

@@ -12,6 +12,30 @@ body{
 	position: relative;
 	top: -60px;
 }
+a:link {
+	color: #006ecb;
+	text-decoration: none;	
+}
+a:visited{
+	color: #006ecb;
+	text-decoration: none;	
+}
+a:hover{
+	color: #5eca33;
+	text-decoration: none;	
+}
+a:active{
+	color: #5eca33;
+	text-decoration: none;	
+	color: blue;
+}
+.park_image_home{
+	float: left;
+	width: 300px;
+	margin: 0px 20px 20px 0;
+	background-color: #006ecb;
+	padding: 4px;
+}
 .main_content{
 	margin: 5px;
 }
@@ -49,13 +73,33 @@ h1 {
 	font: normal 20pt trebuchet; 
 	font-style: italic
 }
+h2 {
+	font: normal 16pt Arial; 
+	line-height:0px;
+}
+h3 {
+	color: black;
+	font: normal 14pt arial; 
+}
+h4 {
+	color: black;
+	font: normal 12pt arial; 
+}
 .tagline {
 	position: relative;
 	top: 120px;
 	left: 300px;
 	line-height: 0;
 }
-
+.parks_list {
+	valign: top;
+	vertical-align: super;
+}
+hr {
+	color: #575757;
+	background-color: #575757;
+	height:2px;
+}
 
 
 
