@@ -27,7 +27,9 @@ public class MainController {
 	@RequestMapping(path= {"/park_detail", "park_details"})
 	public String displayParkDetails(HttpServletRequest request) {
 		HashMap<String, Park>allParks = (HashMap) request.getAttribute("allParks");
-		Park park = allParks.get(request.getParameter("code"));
+		if (allParks == null) allParks = (HashMap) parkDao.getAllParks();
+		String codeStr = request.getParameter("code");
+		Park park = (Park) allParks.get(codeStr);
 		request.setAttribute("park", park);
 		return "park_detail";
 	}
