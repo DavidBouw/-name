@@ -1,6 +1,7 @@
 package com.techelevator.model.jdbc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -24,13 +25,14 @@ public class JDBCParkDao implements ParkDao{
 	}
 	
 	@Override
-	public List<Park> getAllParks(){
-		List<Park> allParks = new ArrayList<>();
+	public HashMap<String, Park> getAllParks(){
+		HashMap<String, Park> allParks = new HashMap<>();
 		String sqlSelectAllParks = "SELECT * FROM park";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllParks);
 		
 		while(results.next()) {
-			allParks.add(mapRowToPark(results));
+			Park aPark = mapRowToPark(results);
+			allParks.put(aPark.getCode(), aPark);
 		}
 		
 		return allParks;

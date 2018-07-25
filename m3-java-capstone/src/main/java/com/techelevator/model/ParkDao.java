@@ -1,7 +1,7 @@
 package com.techelevator.model;
 
-import java.util.List;
+import java.util.HashMap;
 
 public interface ParkDao {
-	public List<Park> getAllParks();
+	public HashMap<String, Park> getAllParks();
 }
