@@ -3,6 +3,6 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-
+Surveys
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

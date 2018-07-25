@@ -10,10 +10,13 @@ public class MainController {
 		return "home";
 	}
 	
-	@RequestMapping("/park_detail")
-	public String displayAlien_age() {
+	@RequestMapping(path= {"/park_detail","/park_details"})
+	public String displayParkDetails() {
 		return "park_detail";
 	}
 	
-	
+	@RequestMapping(path= {"/survey","surveys"})
+	public String displaySurveysPage() {
+		return "surveys";
+	}
 }
