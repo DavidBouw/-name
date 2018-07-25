@@ -1,9 +1,10 @@
 package com.techelevator.model;
 
-import java.util.List;
+import java.util.LinkedHashMap;
 
 public interface SurveyDao {
-	public List<Survey> getAllSurveys();
+	public LinkedHashMap<String, Integer> getFavorites();
 	
-	public void saveSurvey(Survey survey);
+	public void saveSurvey(String name, String emailAddress,
+			String state, String activityLevel);
 }
