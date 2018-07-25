@@ -1,5 +1,19 @@
+header {
+	padding: 0 0 0 10px;
+	background-color: #0093c9;
+	position: relative;
+}
 header img {
 	height: 110px;
+}
+body{
+	margin: 0px;
+	font-family: arial;
+	position: relative;
+	top: -60px;
+}
+.main_content{
+	margin: 5px;
 }
 ul {
     list-style-type: none;
@@ -22,9 +36,25 @@ li a {
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: #4ba428;
 }
-
+.copyright{
+	
+	font-style: italic;
+	color: #00668c;
+}
+h1 {
+	color: white;
+	text-shadow: 1px 1px 2px black, 0 0 25px darkblue, 0 0 5px darkgrey;
+	font: normal 20pt trebuchet; 
+	font-style: italic
+}
+.tagline {
+	position: relative;
+	top: 120px;
+	left: 300px;
+	line-height: 0;
+}
 
 
 
