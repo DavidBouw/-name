@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.techelevator.model.Park;
 import com.techelevator.model.ParkDao;
-import com.techelevator.ssg.model.forum.ForumDao;
 
 @Controller
 public class MainController {
