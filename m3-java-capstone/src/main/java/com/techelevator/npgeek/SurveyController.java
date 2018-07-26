@@ -6,13 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.model.ParkDao;
-import com.techelevator.model.Survey;
 import com.techelevator.model.SurveyDao;
 
 @Controller
@@ -36,11 +34,14 @@ public class SurveyController {
 			 @RequestParam String emailAddress, 
 			 @RequestParam String stateOfResidence,
 			 @RequestParam String activityLevel,
-			 ModelMap model){
-		LinkedHashMap<String, Integer> allFavorites = surveyDao.getFavorites();
+			 HttpServletRequest request){
 		
 		surveyDao.saveSurvey(name, emailAddress, stateOfResidence, activityLevel);
 		
-		return "surveys";
+		LinkedHashMap<String, Integer> allFavorites = surveyDao.getFavorites();
+		
+		request.setAttribute("favorites", allFavorites);
+		
+		return "redirect:/surveys";
 	}
 }

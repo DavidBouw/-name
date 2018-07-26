@@ -4,7 +4,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <c:choose>
-    <c:when test="${requestScope.films == null}">
+    <c:when test="${requestScope.favorites == null}">
 	    	<c:url var="formAction" value="/survey" />
 		<form method="POST" action="${formAction}">
 		<div class="formInputGroup">
@@ -17,7 +17,7 @@
 		</div>
 		<div class="formInputGroup">
 			<label for="emailAddress">Your email</label> 
-			<input type="text" name="emailAddress" required="required"/>
+			<input type="email" name="emailAddress" required="required"/>
 		</div>
 		<div class="formInputGroup">
 			<label for="stateOfResidence">State of residence</label> 
