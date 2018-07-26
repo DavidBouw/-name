@@ -27,10 +27,11 @@ public class JDBCSurveyDao implements SurveyDao{
 	@Override
 	public LinkedHashMap<String, Integer> getFavorites() {
 		LinkedHashMap<String, Integer> allFavorites = new LinkedHashMap<String, Integer>();
-		String sqlSelectAllFavorites = "SELECT s.parkcode, COUNT(surveyid) AS surveyCount " + 
+		String sqlSelectAllFavorites = "SELECT s.parkcode, p.parkname, COUNT(surveyid) AS surveyCount " + 
 				"FROM survey_result AS s " + 
+				"JOIN park AS p ON s.parkcode = p.parkcode" +
 				"GROUP BY s.parkcode " + 
-				"ORDER BY surveyCount DESC;";
+				"ORDER BY surveyCount DESC, p.parkname ASC";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllFavorites);
 		
 		while(results.next()) {
