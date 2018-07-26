@@ -46,4 +46,11 @@ public class Forecast {
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
+	public int getConvertedHigh(String units) {
+		return Integer.parseInt(helperMethods.convertUnits((double)high, units));
+	}
+	public int getConvertedLow(String units) {
+		return Integer.parseInt(helperMethods.convertUnits((double)low, units));
+	}
+
 }

@@ -153,11 +153,12 @@ hr {
 	width: 750px;
 }
 .field_label{
-	font-weight: bold;
 	border-width: 0 0 1px 0;
 	border-color: black;
+	font: bold 12pt Arial;
 }
 .field_value{
+	font: normal 12pt Arial;
 	border-width: 0 0 1px 0;
 }
 .details_footer{
@@ -189,4 +190,14 @@ hr {
 	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
 	border-radius: 5px;
 	margin: 5px;
+}
+.weather_label{
+	border-width: 0 0 1px 0;
+	border-color: black;
+	font: bold 10pt Arial;
+}
+.weather_value{
+	border-width: 0 0 1px 0;
+	border-color: black;
+	font: normal 10pt Arial;
 }
