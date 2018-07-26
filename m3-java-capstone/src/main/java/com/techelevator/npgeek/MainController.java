@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.techelevator.model.Forecast;
+import com.techelevator.model.ForecastDao;
 import com.techelevator.model.Park;
 import com.techelevator.model.ParkDao;
 
@@ -17,8 +19,13 @@ public class MainController {
 	@Autowired
 	private ParkDao parkDao;
 	
+	@Autowired
+	private ForecastDao forecastDao;
+	
 	@RequestMapping(path= {"/","home"})
 	public String displayHomePage(HttpServletRequest request) {
+		
+		//Get a mapp of all parks for the home page
 		HashMap<String, Park> allParks = (HashMap) parkDao.getAllParks();
 		request.setAttribute("allParks", allParks);
 		return "home";
@@ -26,11 +33,17 @@ public class MainController {
 	
 	@RequestMapping(path= {"/park_detail", "park_details"})
 	public String displayParkDetails(HttpServletRequest request) {
+		
+		//Get the current Park for the park specifics data details
 		HashMap<String, Park>allParks = (HashMap) request.getAttribute("allParks");
 		if (allParks == null) allParks = (HashMap) parkDao.getAllParks();
 		String codeStr = request.getParameter("code");
 		Park park = (Park) allParks.get(codeStr);
 		request.setAttribute("park", park);
+		
+		//Get the five day weather data
+		ArrayList<Forecast> forecastList = (ArrayList<Forecast>)forecastDao.getFiveDayForecast();
+		request.setAttribute("forecastList", forecastList);
 		return "park_detail";
 	}
 	

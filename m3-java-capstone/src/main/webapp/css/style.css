@@ -71,9 +71,40 @@ li a:hover {
 	padding: 4px;
 	width: 600px;
 	height: 333px;
+	position: absolute;
+	top: 225px;
+	left: 210px;
+}
+.figcaption{
+	color: #005dab;
+	border: thin solid grey;
+	padding:6px;
+	margin: 5px;
+	background-color: #eef2ff;
+	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
+	border-radius: 5px;
+	position: absolute;
+	top: 540px;
+	left: 250px;
+	text-align: center;
+	z-index: 50;
+	width: 500px;
+	
+}
+.park_detail_title{
+	color: white;
+	text-shadow: 1px 1px 2px black, 0 0 25px darkblue, 0 0 5px darkgrey;
+	font: normal 28pt Arial; 
+	position: absolute;
+	top: 240px;
+	left: 230px;
+	z-index:100;
+	text-align: center;
+	width: 580px;
 }
 .main_content{
 	margin: 5px;
+	width: 1100px;
 }
 
 .copyright{
@@ -81,6 +112,7 @@ li a:hover {
 	font-style: italic;
 	color: #006ecb;
 }
+
 h1 {
 	color: white;
 	text-shadow: 1px 1px 2px black, 0 0 25px darkblue, 0 0 5px darkgrey;
@@ -111,8 +143,26 @@ hr {
 	background-color: #575757;
 	height:2px;
 }
-
-
+.detail_description{
+	position: relative;
+	top:380px;
+	left: -40px;
+	padding:0px;
+	width: 750px;
+}
+.field_label{
+	font-weight: bold;
+	border-width: 0 0 1px 0;
+	border-color: black;
+}
+.field_value{
+	border-width: 0 0 1px 0;
+}
+.details_footer{
+	position: relative;
+	top: 350px;
+	width: 1000px;
+}
 
 
 
