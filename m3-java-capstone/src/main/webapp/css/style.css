@@ -89,7 +89,7 @@ li a:hover {
 	text-align: center;
 	z-index: 50;
 	width: 500px;
-	
+	font: italic 10pt Arial; 	
 }
 .park_detail_title{
 	color: white;
@@ -126,10 +126,12 @@ h2 {
 h3 {
 	color: black;
 	font: normal 14pt arial; 
+	margin:0;
 }
 h4 {
 	color: black;
 	font: normal 12pt arial; 
+	margin: 0 0 0 0;
 }
 .tagline {
 	position: relative;
@@ -145,7 +147,7 @@ hr {
 }
 .detail_description{
 	position: relative;
-	top:380px;
+	top:410px;
 	left: -40px;
 	padding:0px;
 	width: 750px;
@@ -163,6 +165,28 @@ hr {
 	top: 350px;
 	width: 1000px;
 }
+.weather_today{
+	font: normal 11pt Arial;
+	font-weight: bold;
+	color: black; 
+	text-align: center; 
+}
+.weather_5day{
+	font: normal 11pt Arial;
+	font-weight: bold;
+	color: black; 
+	text-align: center; 
+	}
 
-
-
+.weather_today img{
+	width: 100px;
+}
+.weather_5day img{
+	width: 100px;
+}
+.weather_card{
+	padding:10px;
+	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
+	border-radius: 5px;
+	margin: 5px;
+}
