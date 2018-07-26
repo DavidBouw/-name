@@ -17,7 +17,7 @@
 		</div>
 		<div class="formInputGroup">
 			<label for="emailAddress">Your email</label> 
-			<input type="text" name="emailAddress"/>
+			<input type="text" name="emailAddress" required="required"/>
 		</div>
 		<div class="formInputGroup">
 			<label for="stateOfResidence">State of residence</label> 
