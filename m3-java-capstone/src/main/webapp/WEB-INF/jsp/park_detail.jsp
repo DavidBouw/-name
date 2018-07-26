@@ -59,7 +59,7 @@
 		    <td class="${css}" nowrap><div class="weather_card"><h3>${weekday_name}</h3><br>
 		    	${daily_forecast.getForecast()}<br>
 		    <img src="img/weather/${img}.png"><br>
-		    <span class="weather_label">High:</span> <span class="weather_value">${daily_forecast.getConvertedLow('celcius')}&deg;F</span> 
+		    <span class="weather_label">High:</span> <span class="weather_value">${daily_forecast.getLow()}&deg;F</span> 
 		    <span class="weather_label"> Low:</span> <span class="weather_value">${daily_forecast.getHigh()}&deg;F</span>
 		    	</div></td>
     </c:when>    
