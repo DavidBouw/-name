@@ -21,17 +21,18 @@
     		<td class="field_label">Entrance Fee:</td><td class="field_value">${park.getEntryFee()}</td>
     		<td class="field_label">Number of Animal Species:</td><td class="field_value">${park.getNumberOfAnimalSpecies()}</td>
     </tr>
-    <tr><td colspan="4">
+    <tr><td colspan="4"><br>
     <table>	
     <tr>    
     	<c:forEach var="daily_forecast" items="${forecastList}" >
     	<c:choose>
     <c:when test="${daily_forecast.getParkCode().equals(park.getCode())}">
-    
  	<!-- get the title  -->
+ 	 <c:url var="css" value="weather_5day" />     
 	<c:choose>
     		<c:when test="${daily_forecast.getFiveDayForecastValue() == 1}">
- 			<c:url var="weekday_name" value="Today" />     
+ 			 <c:url var="weekday_name" value="Today" />     
+		 	 <c:url var="css" value="weather_today" />     
     		</c:when>    
     		<c:when test="${daily_forecast.getFiveDayForecastValue() == 2}">
  			<c:url var="weekday_name" value="Tomorrow" />     
@@ -46,13 +47,20 @@
  			<c:url var="weekday_name" value="Friday" />     
     		</c:otherwise>
 	</c:choose>
-
- 			
- 	
-		    <td>	${daily_forecast.getFiveDayForecastValue()}<br>
+	<c:choose>
+    		<c:when test="${daily_forecast.getForecast() == 'partly cloudy'}">
+ 			<c:url var="img" value="partlyCloudy" />     
+    		</c:when>    
+    		<c:otherwise>
+ 			<c:url var="img" value="${daily_forecast.getForecast()}"/>     
+    		</c:otherwise>
+    		
+	</c:choose>
+		    <td class="${css}" nowrap><div class="weather_card"><h3>${weekday_name}</h3><br>
 		    	${daily_forecast.getForecast()}<br>
-		    	${daily_forecast.getLow()}<br>
-		    	${daily_forecast.getHigh()}<br></td>
+		    <img src="img/weather/${img}.png"><br>
+		    	High: ${daily_forecast.getLow()} Low: ${daily_forecast.getHigh()}
+		    	</div></td>
     </c:when>    
 	</c:choose>
     </c:forEach>
@@ -62,11 +70,10 @@
 </table>
 <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
 <div class="park_detail_title center">${park.getName()}</div>
-<div class="figcaption center">${park.getInspirationalQuote()}</div>
+<div class="figcaption center">${park.getInspirationalQuote()} - ${park.getInspirationalQuoteSource()}</div>
 
-${park.getInspirationalQuoteSource()}
 <!-- due to positioning unique to this page, the footer is handled differently on this page only -->
-</div><br><br><div class="details_footer">
+</div><br><br><br><div class="details_footer">
 <hr width="80%">
 <table width="100%"><tr><td align="center"><p class="copyright">Copyright National Park Geek 2018</p></td></tr></table></div>
 </body>
