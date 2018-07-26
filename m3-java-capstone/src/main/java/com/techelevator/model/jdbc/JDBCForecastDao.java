@@ -40,7 +40,7 @@ public class JDBCForecastDao implements ForecastDao{
 		Forecast forecast = new Forecast();
 		
 		forecast.setParkCode(results.getString("parkcode"));
-		forecast.setFiveDayForecastValue(results.getInt("firedayforecastvalue"));
+		forecast.setFiveDayForecastValue(results.getInt("fivedayforecastvalue"));
 		forecast.setLow(results.getInt("low"));
 		forecast.setHigh(results.getInt("high"));
 		forecast.setForecast(results.getString("forecast"));

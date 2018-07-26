@@ -1,25 +1,73 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-<table>
-<tr>
-    <td>
-    <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
-	<h2>${park.getName()}</h2>
-    <h4>${park.getDescription()}</h4></td>
-</tr>
-</table>
-<table>
-    <tr><td><h3>Acerage:</h3></td><td><h4>${park.getAcreage()}</h4></td></tr>
-    <tr><td><h3>Elevation:</h3></td><td><h4>${park.getElevationInFeet()}</h4></td></tr>
-    <tr><td><h3>Miles of Trail:</h3></td><td><h4>${park.getMilesOfTrail()}</h4></td></tr>
-    <tr><td><h3>Number of Campsites:</h3></td><td><h4>${park.getNumberOfCampsites()}</h4></td></tr>
-    <tr><td><h3>CLimate:</h3></td><td><h4>${park.getClimate()}</h4></td></tr>
-    <tr><td><h3>Annual Visitor Count:</h3></td><td><h4>${park.getAnnualVisitorCount()}</h4></td></tr>
-    <tr><td><h3>Quote:</h3></td><td><h4>${park.getInspirationalQuote()}</h4></td></tr>
-    <tr><td><h3>Quote SOurce:</h3></td><td><h4>${park.getInspirationalQuoteSource()}</h4></td></tr>
-    <tr><td><h3>Entrance Fee:</h3></td><td><h4>${park.getEntryFee()}</h4></td></tr>
-    <tr><td><h3>Number of Animal Species:</h3></td><td><h4>${park.getNumberOfAnimalSpecies()}</h4></td></tr>
-</table>
+<table class="detail_description center">
+	<tr><td colspan="4"><h4>${park.getDescription()}</h4></td></tr>
+    <tr>
+    		<td class="field_label">Acerage:</td><td class="field_value">${park.getAcreage()}</td>
+	    	<td class="field_label">Elevation:</td><td class="field_value">${park.getElevationInFeet()}</td>
+    </tr>
+    <tr>
+    		<td class="field_label">Miles of Trail:</td><td class="field_value"><fmt:formatNumber type = "number" 
+         maxFractionDigits = "3" value = "${park.getMilesOfTrail()}" /></td>
+    		<td class="field_label">Number of Campsites:</td><td class="field_value">${park.getNumberOfCampsites()}</td>
+    </tr>
+    <tr>
+    		<td class="field_label">Climate:</td><td class="field_value">${park.getClimate()}</td>
+    		<td class="field_label">Annual Visitor Count:</td><td class="field_value">${park.getAnnualVisitorCount()}</td>
+    </tr>
+    <tr>
+    		<td class="field_label">Entrance Fee:</td><td class="field_value">${park.getEntryFee()}</td>
+    		<td class="field_label">Number of Animal Species:</td><td class="field_value">${park.getNumberOfAnimalSpecies()}</td>
+    </tr>
+    <tr><td colspan="4">
+    <table>	
+    <tr>    
+    	<c:forEach var="daily_forecast" items="${forecastList}" >
+    	<c:choose>
+    <c:when test="${daily_forecast.getParkCode().equals(park.getCode())}">
+    
+ 	<!-- get the title  -->
+	<c:choose>
+    		<c:when test="${daily_forecast.getFiveDayForecastValue() == 1}">
+ 			<c:url var="weekday_name" value="Today" />     
+    		</c:when>    
+    		<c:when test="${daily_forecast.getFiveDayForecastValue() == 2}">
+ 			<c:url var="weekday_name" value="Tomorrow" />     
+    		</c:when>    
+    		<c:when test="${daily_forecast.getFiveDayForecastValue() == 3}">
+ 			<c:url var="weekday_name" value="Wednesday" />     
+    		</c:when>    
+    		<c:when test="${daily_forecast.getFiveDayForecastValue() == 4}">
+ 			<c:url var="weekday_name" value="Thursday" />     
+    		</c:when>        		
+    		<c:otherwise>
+ 			<c:url var="weekday_name" value="Friday" />     
+    		</c:otherwise>
+	</c:choose>
 
-<c:import url="/WEB-INF/jsp/common/footer.jsp" />
+ 			
+ 	
+		    <td>	${daily_forecast.getFiveDayForecastValue()}<br>
+		    	${daily_forecast.getForecast()}<br>
+		    	${daily_forecast.getLow()}<br>
+		    	${daily_forecast.getHigh()}<br></td>
+    </c:when>    
+	</c:choose>
+    </c:forEach>
+    </tr>
+    </table>
+    </td></tr>
+</table>
+<img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
+<div class="park_detail_title center">${park.getName()}</div>
+<div class="figcaption center">${park.getInspirationalQuote()}</div>
+
+${park.getInspirationalQuoteSource()}
+<!-- due to positioning unique to this page, the footer is handled differently on this page only -->
+</div><br><br><div class="details_footer">
+<hr width="80%">
+<table width="100%"><tr><td align="center"><p class="copyright">Copyright National Park Geek 2018</p></td></tr></table></div>
+</body>
+</html>
