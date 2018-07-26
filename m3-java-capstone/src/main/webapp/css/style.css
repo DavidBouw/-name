@@ -1,6 +1,6 @@
 header {
 	padding: 0 0 0 10px;
-	background-color: #0093c9;
+	background-color: #006ecb;
 	position: relative;
 }
 header img {
@@ -11,6 +11,7 @@ body{
 	font-family: arial;
 	position: relative;
 	top: -60px;
+	background-image: url("img/parks/details_bg.png");
 }
 a:link {
 	color: #006ecb;
@@ -35,6 +36,29 @@ a:active{
 	margin: 0px 20px 20px 0;
 	background-color: #006ecb;
 	padding: 4px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.park_image_detail{
+	background-color: #006ecb;
+	padding: 4px;
+	width: 600px;
+	height: 333px;
+}
+.image_backdrop {
+	background-image: url("img/parks/details_bg.png");
+	background-repeat: repeat-x;
+	width: 105%;
+	height: 341px;
+	margin: 0;
+	padding: 10px;
+	position: relative;
+	left: -10px;
+	top: -10px;
 }
 .main_content{
 	margin: 5px;
@@ -61,11 +85,12 @@ li a {
 
 li a:hover {
     background-color: #4ba428;
+    color: white;
 }
 .copyright{
 	
 	font-style: italic;
-	color: #00668c;
+	color: #006ecb;
 }
 h1 {
 	color: white;
@@ -91,15 +116,13 @@ h4 {
 	left: 300px;
 	line-height: 0;
 }
-.parks_list {
-	valign: top;
-	vertical-align: super;
-}
+
 hr {
 	color: #575757;
 	background-color: #575757;
 	height:2px;
 }
+
 
 
 
