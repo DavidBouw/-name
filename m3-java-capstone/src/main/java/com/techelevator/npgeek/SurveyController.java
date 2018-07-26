@@ -32,24 +32,14 @@ public class SurveyController {
 	}
     
 	@RequestMapping(path={"/surveys", "/survey"}, method=RequestMethod.POST)
-	public String showSurveyForms(@RequestParam String firstName, 
-			 @RequestParam Long surveyId,  
-			 @RequestParam String parkCode, 
+	public String handleSurveySubmit(@RequestParam String name, 
 			 @RequestParam String emailAddress, 
-			 @RequestParam String state,
+			 @RequestParam String stateOfResidence,
 			 @RequestParam String activityLevel,
 			 ModelMap model){
 		LinkedHashMap<String, Integer> allFavorites = surveyDao.getFavorites();
 		
-		Survey userSurvey = new Survey();
-		userSurvey.setId(surveyId);
-		userSurvey.setParkCode(parkCode);
-		userSurvey.setEmailAddress(emailAddress);
-		userSurvey.setState(state);
-		userSurvey.setActivityLevel(activityLevel);
-		
-		
-		model.put("",null);
+		surveyDao.saveSurvey(name, emailAddress, stateOfResidence, activityLevel);
 		
 		return "surveys";
 	}
