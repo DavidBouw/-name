@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.eclipse.jetty.websocket.api.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +35,7 @@ public class MainController {
 	
 	@RequestMapping(path= {"/park_detail", "park_details"})
 	public String displayParkDetails(HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		
 		//Get the current Park for the park specifics data details
 		HashMap<String, Park>allParks = (HashMap) request.getAttribute("allParks");
@@ -40,6 +43,10 @@ public class MainController {
 		String codeStr = request.getParameter("code");
 		Park park = (Park) allParks.get(codeStr);
 		request.setAttribute("park", park);
+		
+		//load the units
+		if (request.getParameter("weather_units") != "") session.setAttribute("weather_units", request.getParameter("weather_units"));
+		else session.setAttribute("weather_units", "fahrenheit");
 		
 		//Get the five day weather data
 		ArrayList<Forecast> forecastList = (ArrayList<Forecast>)forecastDao.getFiveDayForecast();
@@ -51,5 +58,6 @@ public class MainController {
 	public String displaySurveysPage() {
 		return "surveys";
 	}
+	
 	
 }
