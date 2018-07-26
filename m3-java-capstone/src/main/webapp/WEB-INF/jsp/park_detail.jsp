@@ -1,14 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-<table border="1">
+<table>
 <tr>
     <td>
-    <div class="image_backdrop" style="background-image: url('img/parks/details_bg.png')">
-    <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center"></div>
+    <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
 	<h2>${park.getName()}</h2>
     <h4>${park.getDescription()}</h4></td>
 </tr>
+</table>
+<table>
     <tr><td><h3>Acerage:</h3></td><td><h4>${park.getAcreage()}</h4></td></tr>
     <tr><td><h3>Elevation:</h3></td><td><h4>${park.getElevationInFeet()}</h4></td></tr>
     <tr><td><h3>Miles of Trail:</h3></td><td><h4>${park.getMilesOfTrail()}</h4></td></tr>

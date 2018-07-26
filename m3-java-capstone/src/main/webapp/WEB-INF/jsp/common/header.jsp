@@ -7,8 +7,15 @@
 	<c:url value="/css/style.css" var="cssHref" />
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
-<body>
+<c:choose>
+    <c:when test="${park != null}">
+ 	<c:url var="style" value="background-image: url('img/parks/body_bg.png');background-repeat: repeat-x;" />     
+    </c:when>    
+    <c:otherwise>
+ 	<c:url var="style" value="background-image: url('img/parks/body_bg_main.png');background-repeat: repeat-x;" />     
+    </c:otherwise>
+</c:choose>
+<body style="${style}">
 	<header>
 	<div class="tagline"><h1>Plan your next visit to a National Park</h1></div>
 	<a href="/"><img src="img/logo.png" alt="National Park Geek logo" /></a>
