@@ -41,12 +41,19 @@ public class MainController {
 		HashMap<String, Park>allParks = (HashMap) request.getAttribute("allParks");
 		if (allParks == null) allParks = (HashMap) parkDao.getAllParks();
 		String codeStr = request.getParameter("code");
+		request.setAttribute("code", codeStr);
 		Park park = (Park) allParks.get(codeStr);
 		request.setAttribute("park", park);
 		
 		//load the units
-		if (request.getParameter("weather_units") != "") session.setAttribute("weather_units", request.getParameter("weather_units"));
-		else session.setAttribute("weather_units", "fahrenheit");
+		if (request.getParameter("weather_units") != null) {
+			request.setAttribute("weather_units", request.getParameter("weather_units"));
+			session.setAttribute("weather_units", request.getParameter("weather_units"));
+		}
+		else if (session.getAttribute("weather_units") != null) {
+			request.setAttribute("weather_units", session.getAttribute("weather_units"));
+		}
+		else request.setAttribute("weather_units", "fahrenheit");
 		
 		//Get the five day weather data
 		ArrayList<Forecast> forecastList = (ArrayList<Forecast>)forecastDao.getFiveDayForecast();
