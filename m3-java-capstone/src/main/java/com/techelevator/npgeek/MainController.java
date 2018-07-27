@@ -32,7 +32,6 @@ public class MainController {
 		request.setAttribute("allParks", allParks);
 		return "home";
 	}
-	
 	@RequestMapping(path= {"/park_detail", "park_details"})
 	public String displayParkDetails(HttpServletRequest request) {
 		HttpSession session = request.getSession();

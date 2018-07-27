@@ -52,6 +52,7 @@ public class Forecast {
 	public int getConvertedLow(String units) {
 		return Integer.parseInt(helperMethods.convertUnits((double)low, "fahrenheit", units));
 	}
+	
 	public String getWeatherTips() {
 		String tips = "";
 		if (forecast.equals("snow")) tips +="There will be snow. Pack your snow shoes! ";

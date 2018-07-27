@@ -128,7 +128,6 @@ public class Park {
 	public void setEntryFee(int entryFee) {
 		this.entryFee = entryFee;
 	}
-	
 	public int getNumberOfAnimalSpecies() {
 		return numberOfAnimalSpecies;
 	}

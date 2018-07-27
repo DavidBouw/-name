@@ -77,7 +77,7 @@
     		</c:otherwise>
 	</c:choose>
 		    <td class="${css}" nowrap><div class="weather_card" onmouseover="fnShowTip(${daily_forecast.getFiveDayForecastValue()})"
-		    onmouseout="fnHideTip()"><h3>${weekday_name}</h3><br>
+		    onmouseout="fnHideTip()"><h3 id="day_title_${daily_forecast.getFiveDayForecastValue()}">${weekday_name}</h3><br>
 		    	${daily_forecast.getForecast()}<br>
 		    <img src="img/weather/${img}.png"><br>
 		    <span class="weather_label">High:</span> <span class="weather_value">${daily_forecast.getConvertedLow(weather_units)}&deg;${units}</span> 
@@ -87,21 +87,26 @@
 	</c:choose>
     </c:forEach>
     </tr>
-    <tr><td colspan="5"><div class="weather_tip" id="weather_tip">weather tips</div></td></tr>
+    <tr><td colspan="5" class="weather_tip"><div class="weather_tip" id="weather_tip"></div></td></tr>
     </table>
     </td></tr>
 </table>
 <script language="javascript">
 function fnShowTip(dayNum){
 	var tipBox = document.getElementById("weather_tip");
-	tipBox.innerHTML = tips[dayNum];
+	var $dayTitle = document.getElementById("day_title_" + dayNum).innerHTML;
+	tipBox.innerHTML = "<b>" + $dayTitle + "</b><br>";
+	tipBox.innerHTML += tips[dayNum];
 	tipBox.style="visibility: visible;"
 }
 function fnHideTip(){
-	var tipBox = document.getElementById("weather_tip");
-	tipBox.innerHTML = tips[1];
+//	var tipBox = document.getElementById("weather_tip");
+//	tipBox.innerHTML = tips[1];
 	//tipBox.style="visibility: hidden;"
+	fnShowTip(1);
 }
+//Load the initial day's tip
+fnShowTip(1);
 </script>
 <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
 <div class="park_detail_title center">${park.getName()}</div>
