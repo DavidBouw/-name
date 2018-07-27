@@ -8,11 +8,11 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <c:choose>
-    <c:when test="${park != null}">
- 	<c:url var="style" value="background-image: url('img/parks/body_bg.png');background-repeat: repeat-x;" />     
+    <c:when test="<%=request.getRequestURI().contains(\"home.jsp\")%>">
+		 	<c:url var="style" value="background-image: url('img/parks/body_bg_main.png');background-repeat: repeat-x;" />     
     </c:when>    
     <c:otherwise>
- 	<c:url var="style" value="background-image: url('img/parks/body_bg_main.png');background-repeat: repeat-x;" />     
+     	<c:url var="style" value="background-image: url('img/parks/body_bg.png');background-repeat: repeat-x;" />     
     </c:otherwise>
 </c:choose>
 <body style="${style}">
