@@ -1,0 +1,107 @@
+
+
+.main {
+  height: 100%;
+}
+.title{
+  width:100%;
+}
+
+.table_main {
+  background-color: #DCEDF5;
+}
+.table_cell {
+  background-color: #DCEDF5;
+  padding: 15px; 
+}
+.forecast{
+  width: 350px;
+}
+
+h1 {
+  font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  font-weight: normal;
+  margin: 0;
+  text-align: right;
+}
+
+h2 {
+  background-color: white;
+  border-top: 3px solid #03A9F4;
+  border-bottom: 3px solid #03A9F4;
+  font-size: 24px;
+  font-weight: bold;
+  color: #03A9F4;
+  margin: 0 0 10px 0;
+  padding: 5px 0 5px 0;
+  width:100%;
+}
+
+.day {
+  cursor: pointer;
+}
+
+.day > div {
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.weekday span {
+  font-size: 10px;
+}
+
+.weekday p {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.weather img {
+  width: 48px;
+  border-radius: 24px;
+}
+
+.high p,
+.low p,
+.hourly .temp {
+  font-size: 16px;
+}
+
+.hourly {
+  text-align: center;
+  display: none;
+  border-top: 1px solid lightblue;
+  border-bottom: 1px solid lightblue;
+  background-color: rgb(176, 211, 228);
+}
+
+.hourly .hour {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.hourly img {
+  width: 24px;
+  border-radius: 12px;
+}
+
+.hourly p {
+  font-weight:bold;
+}
+.time {
+  font-weight: bold;
+}
+
+@media (max-width: 720px) {
+  .container {
+    background: rgba(255,255,255,0.8);
+  }
+}
+
+.time_cell{
+  width: 44px;
+  float: right;
+  font-weight: bold;
+/*  border: 1px solid blue; */
+}

@@ -65,5 +65,13 @@ public class MainController {
 		return "surveys";
 	}
 	
+	@RequestMapping(path= {"/weather_realtime","weather_realtime"})
+	public String displayRealTimeWeatherPage() {
+		return "weather_realtime";
+	}
+	@RequestMapping(path= {"/weather","weather"})
+	public String displayWeatherJSPage() {
+		return "weather";
+	}
 	
 }
