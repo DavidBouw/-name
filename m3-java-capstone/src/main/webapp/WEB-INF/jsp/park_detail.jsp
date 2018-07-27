@@ -4,26 +4,26 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 <form method="get" action=""><script>var tips=[""];</script>
 <table class="detail_description center">
-	<tr><td colspan="4"><h4>${park.getDescription()}</h4></td></tr>
+	<tr><td colspan="5"><h4>${park.getDescription()}</h4></td></tr>
     <tr>
     		<td class="field_label">Acerage:</td><td class="field_value"><fmt:formatNumber value="${park.getAcreage()}" /></td>
-	    	<td class="field_label">Elevation:</td><td class="field_value"><fmt:formatNumber value="${park.getElevationInFeet()}"/> ft</td>
+	    	<td class="field_label">Elevation:</td><td class="field_value" colspan="2"><fmt:formatNumber value="${park.getElevationInFeet()}"/> ft</td>
     </tr>
     <tr>
     		<td class="field_label">Miles of Trail:</td><td class="field_value"><fmt:formatNumber type = "number" 
          maxFractionDigits = "3" value = "${park.getMilesOfTrail()}" /></td>
-    		<td class="field_label">Number of Campsites:</td><td class="field_value">${park.getNumberOfCampsites()}</td>
+    		<td class="field_label">Number of Campsites:</td><td class="field_value" colspan="2">${park.getNumberOfCampsites()}</td>
     </tr>
     <tr>
     		<td class="field_label">Climate:</td><td class="field_value">${park.getClimate()}</td>
-    		<td class="field_label">Annual Visitor Count:</td><td class="field_value"><fmt:formatNumber value="${park.getAnnualVisitorCount()}"/></td>
+    		<td class="field_label">Annual Visitor Count:</td><td class="field_value" colspan="2"><fmt:formatNumber value="${park.getAnnualVisitorCount()}"/></td>
     </tr>
     <tr>
     		<td class="field_label">Entrance Fee:</td><td class="field_value"><fmt:formatNumber value="${park.getEntryFee()}" type="currency"/></td>
-    		<td class="field_label">Number of Animal Species:</td><td class="field_value"><fmt:formatNumber value="${park.getNumberOfAnimalSpecies()}"/></td>
+    		<td class="field_label">Number of Animal Species:</td><td class="field_value" colspan="2"><fmt:formatNumber value="${park.getNumberOfAnimalSpecies()}"/></td>
     </tr>
     <tr>
-    		<td colspan="4" class="convert_units">
+    		<td colspan="5" class="convert_units">
 	<c:choose>
     <c:when test="${weather_units == 'celcius'}">
     		<c:url var="units" value="C"/>
@@ -42,7 +42,7 @@
     		&nbsp;&nbsp;
     		</td>
     </tr>
-    <tr><td colspan="4">
+    <tr><td colspan="5">
     <table>	
     <tr>    
     	<c:forEach var="daily_forecast" items="${forecastList}" >
@@ -87,7 +87,7 @@
 	</c:choose>
     </c:forEach>
     </tr>
-    <tr><td colspan="4"><span class="weather_tip" id="weather_tip">weather tips</span></td></tr>
+    <tr><td colspan="5"><div class="weather_tip" id="weather_tip">weather tips</div></td></tr>
     </table>
     </td></tr>
 </table>
@@ -99,8 +99,8 @@ function fnShowTip(dayNum){
 }
 function fnHideTip(){
 	var tipBox = document.getElementById("weather_tip");
-	tipBox.innerHTML = "";
-	tipBox.style="visibility: hidden;"
+	tipBox.innerHTML = tips[1];
+	//tipBox.style="visibility: hidden;"
 }
 </script>
 <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">

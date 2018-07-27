@@ -54,13 +54,13 @@ public class Forecast {
 	}
 	public String getWeatherTips() {
 		String tips = "";
-		if (forecast.equals("snow")) tips +="<br>There will be snow.<br><br>Pack your snow shoes!<br>";
-		if (forecast.equals("rain")) tips +="<br>Looks like rain.<br><br>Pack rain gear and wear waterproof shoes!<br>";
-		if (forecast.equals("thunderstorms")) tips +="<br>Looks like thunderstorms!<br><br>Better seek shelter and avoid hiking on exposed ridges!<br>";
-		if (forecast.equals("sun")) tips +="<br>Pack your sunblock - it's going to be sunny!<br>";
-		if (high > 75) tips +="<br>The temperatures will be hot.<br><br>Bring an extra gallon of water.<br>";
-		if ((high -low) > 20) tips +="<br>The temperatures will vary.<br><br>Wear layers of  breathable clothing.<br>";
-		if (low < 20) tips +="<br>The temperatures will very cold.<br><br>Wear warm clothing to avoid exposure.<br>";
+		if (forecast.equals("snow")) tips +="There will be snow. Pack your snow shoes! ";
+		if (forecast.equals("rain")) tips +="Looks like rain. Pack rain gear and wear waterproof shoes! ";
+		if (forecast.equals("thunderstorms")) tips +="Looks like thunderstorms! Better seek shelter and avoid hiking on exposed ridges! ";
+		if (forecast.equals("sun")) tips +="Pack your sunblock - it's going to be sunny! ";
+		if (high > 75) tips +="The temperatures will be hot. Bring an extra gallon of water. ";
+		if ((high -low) > 20) tips +="The temperatures will vary. Wear layers of  breathable clothing. ";
+		if (low < 20) tips +="The temperatures will very cold. Wear warm clothing to avoid exposure. ";
 		
 		return tips;
 	}
