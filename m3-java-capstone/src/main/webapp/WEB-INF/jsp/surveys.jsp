@@ -5,9 +5,8 @@
 
 <c:url var="formAction" value="/survey" />
 <form method="POST" action="${formAction}">
-<h2>National Parks Survey</h2>
-<h3>Tell Us What You Think</h3>
-<br>
+<h5>National Parks Survey</h5>
+<h1>Tell Us What You Think</h1>
 <table class="survey" cellspacing="5">
 <tr>
 	<td><label for="name">Favorite National Park:</label> </td>
@@ -107,7 +106,7 @@
 	</td>
 </tr>
 </table>
-<input class="formSubmitButton" type="submit" value="Submit" />
+<br><input class="formSubmitButton" type="submit" value="Submit" />
 </form>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

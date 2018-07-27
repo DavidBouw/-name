@@ -134,6 +134,12 @@ h4 {
 	margin: 0 0 0 0;
 	line-height: 16pt;
 }
+h5 {
+	color: #006ecb;
+	font: normal 24pt arial; 
+	padding:0;
+	margin:0;
+}
 .tagline {
 	position: relative;
 	top: 120px;
