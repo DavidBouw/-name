@@ -1,12 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
+<form method="get" action="">
 <table class="detail_description center">
 	<tr><td colspan="4"><h4>${park.getDescription()}</h4></td></tr>
     <tr>
-    		<td class="field_label">Acerage:</td><td class="field_value">${park.getAcreage()}</td>
-	    	<td class="field_label">Elevation:</td><td class="field_value">${park.getElevationInFeet()}</td>
+    		<td class="field_label">Acerage:</td><td class="field_value"><fmt:formatNumber value="${park.getAcreage()}" /></td>
+	    	<td class="field_label">Elevation:</td><td class="field_value"><fmt:formatNumber value="${park.getElevationInFeet()}"/> ft</td>
     </tr>
     <tr>
     		<td class="field_label">Miles of Trail:</td><td class="field_value"><fmt:formatNumber type = "number" 
@@ -15,13 +16,35 @@
     </tr>
     <tr>
     		<td class="field_label">Climate:</td><td class="field_value">${park.getClimate()}</td>
-    		<td class="field_label">Annual Visitor Count:</td><td class="field_value">${park.getAnnualVisitorCount()}</td>
+    		<td class="field_label">Annual Visitor Count:</td><td class="field_value"><fmt:formatNumber value="${park.getAnnualVisitorCount()}"/></td>
     </tr>
     <tr>
-    		<td class="field_label">Entrance Fee:</td><td class="field_value">${park.getEntryFee()}</td>
-    		<td class="field_label">Number of Animal Species:</td><td class="field_value">${park.getNumberOfAnimalSpecies()}</td>
+    		<td class="field_label">Entrance Fee:</td><td class="field_value"><fmt:formatNumber value="${park.getEntryFee()}" type="currency"/></td>
+    		<td class="field_label">Number of Animal Species:</td><td class="field_value"><fmt:formatNumber value="${park.getNumberOfAnimalSpecies()}"/></td>
     </tr>
-    <tr><td colspan="4"><br>
+    <tr>
+    		<td colspan="4" class="convert_units">
+	<c:choose>
+    <c:when test="${weather_units == 'celcius'}">
+    		<c:url var="units" value="C"/>
+    		<input type="hidden" name="weather_units" value="fahrenheit">
+    		<input type="hidden" name="code" value="${code}">
+    		<input type="submit" value="Convert Units To Fahrenheit">
+    </c:when>
+    <c:otherwise>
+    		<c:url var="units" value="F"/>
+    		<input type="hidden" name="weather_units" value="celcius">
+    		<input type="hidden" name="code" value="${code}">
+    		<input type="submit" value="Convert Units To Celcius">
+    </c:otherwise>
+    </c:choose>
+    		
+    		
+    		
+    		&nbsp;&nbsp;
+    		</td>
+    </tr>
+    <tr><td colspan="4">
     <table>	
     <tr>    
     	<c:forEach var="daily_forecast" items="${forecastList}" >
@@ -54,14 +77,13 @@
     		<c:otherwise>
  			<c:url var="img" value="${daily_forecast.getForecast()}"/>     
     		</c:otherwise>
-    		
 	</c:choose>
 		    <td class="${css}" nowrap><div class="weather_card"><h3>${weekday_name}</h3><br>
 		    	${daily_forecast.getForecast()}<br>
 		    <img src="img/weather/${img}.png"><br>
-		    <span class="weather_label">High:</span> <span class="weather_value">${daily_forecast.getLow()}&deg;F</span> 
-		    <span class="weather_label"> Low:</span> <span class="weather_value">${daily_forecast.getHigh()}&deg;F</span>
-		    	</div></td>
+		    <span class="weather_label">High:</span> <span class="weather_value">${daily_forecast.getConvertedLow(weather_units)}&deg;${units}</span> 
+		    <span class="weather_label"> Low:</span> <span class="weather_value">${daily_forecast.getConvertedHigh(weather_units)}&deg;${units}</span>
+		    	</div><div class="weather_tip">${daily_forecast.getWeatherTips()}</div></td>
     </c:when>    
 	</c:choose>
     </c:forEach>
@@ -74,7 +96,7 @@
 <div class="figcaption center">${park.getInspirationalQuote()} - ${park.getInspirationalQuoteSource()}</div>
 
 <!-- due to positioning unique to this page, the footer is handled differently on this page only -->
-</div><br><br><br><div class="details_footer">
+</div></form><br><br><br><div class="details_footer">
 <hr width="80%">
 <table width="100%"><tr><td align="center"><p class="copyright">Copyright National Park Geek 2018</p></td></tr></table></div>
 </body>

@@ -84,14 +84,15 @@ public class helperMethods {
 		}
 		return true;
 	}
-	public static String convertUnits(double num, String units) {		
-		if (units == "fahrenheit") return String.valueOf(Math.round((num * 1.8) + 32));
-		else if (units == "celcius") return String.valueOf(Math.round((num -32) / 1.8));
-		else if (units == "feet") return String.valueOf(Math.round(num * 3.28084));
-		else if (units == "meters") return String.valueOf(Math.round(num * 0.348));
-		else if (units == "miles") return String.valueOf(Math.round(num*0.621371));
-		else if (units == "km") return String.valueOf(Math.round(num * 1.60934));
-		return String.valueOf(num);
+	public static String convertUnits(double num, String fromUnits, String toUnits) {
+		if (fromUnits.equals(toUnits)) return String.valueOf((int) num);
+		if (toUnits.equals("fahrenheit")) return String.valueOf((int)((num * 1.8) + 32));
+		else if (toUnits.equals( "celcius")) return String.valueOf((int)((num -32) / 1.8));
+		else if (toUnits.equals("feet")) return String.valueOf((int)(num * 3.28084));
+		else if (toUnits.equals("meters")) return String.valueOf((int)(num * 0.348));
+		else if (toUnits.equals("miles")) return String.valueOf((int)(num*0.621371));
+		else if (toUnits.equals("km")) return String.valueOf((int)(num * 1.60934));
+		return String.valueOf((int) num);
 	}
 
 }

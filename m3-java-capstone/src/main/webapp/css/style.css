@@ -190,6 +190,8 @@ hr {
 	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
 	border-radius: 5px;
 	margin: 5px;
+	background-color: white;
+	color:#006ecb;
 }
 .weather_label{
 	border-width: 0 0 1px 0;
@@ -200,4 +202,15 @@ hr {
 	border-width: 0 0 1px 0;
 	border-color: black;
 	font: normal 10pt Arial;
+}
+.convert_units{
+	text-align: right;
+	font: normal 10pt Arial;
+	padding: 10px;
+}
+.weather_tip{
+	width: 150px;
+	height: 300px;
+	background-color: lightgrey;
+	border-radius: 10px;
 }
