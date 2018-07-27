@@ -73,7 +73,7 @@ li a:hover {
 	height: 333px;
 	position: absolute;
 	top: 225px;
-	left: 210px;
+	left: 135px;
 }
 .figcaption{
 	color: #005dab;
@@ -85,7 +85,7 @@ li a:hover {
 	border-radius: 5px;
 	position: absolute;
 	top: 540px;
-	left: 250px;
+	left: 175px;
 	text-align: center;
 	z-index: 50;
 	width: 500px;
@@ -97,7 +97,7 @@ li a:hover {
 	font: normal 28pt Arial; 
 	position: absolute;
 	top: 240px;
-	left: 230px;
+	left: 155px;
 	z-index:100;
 	text-align: center;
 	width: 580px;
@@ -132,6 +132,7 @@ h4 {
 	color: black;
 	font: normal 12pt arial; 
 	margin: 0 0 0 0;
+	line-height: 16pt;
 }
 .tagline {
 	position: relative;
@@ -146,9 +147,9 @@ hr {
 	height:2px;
 }
 .detail_description{
-	position: relative;
-	top:410px;
-	left: -40px;
+	position: absolute;
+	top:625px;
+	left: 30px;
 	padding:0px;
 	width: 750px;
 }
@@ -165,8 +166,8 @@ hr {
 }
 .details_footer{
 	position: relative;
-	top: 350px;
-	width: 1000px;
+	top: 925px;
+	width: 850px;
 }
 .weather_today{
 	font: normal 11pt Arial;
@@ -190,11 +191,25 @@ hr {
 .weather_card{
 	padding:10px;
 	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
+	border-width:2px;
+	border-color: #006ecb;
+	border-style: solid;
 	border-radius: 5px;
 	margin: 5px;
 	background-color: white;
 	color:#006ecb;
 }
+.weather_card:hover{
+	box-shadow: 1px 1px 2px green, 0 0 15px green, 0 0 3px green;
+	border-width:2px;
+	border-color:green;
+	border-style: solid;
+	color: green;
+}
+.weather_card:hover h3{
+	color: green;
+}
+display:block; text-decoration:none;}
 .weather_label{
 	border-width: 0 0 1px 0;
 	border-color: black;
@@ -218,4 +233,14 @@ hr {
 	padding: 5px 10px 5px 10px;
 	display: table-cell;
     vertical-align: middle;
+}
+input{
+	border: 1.5px solid #006ecb;
+	border-radius: 5px;
+	padding:4px 8px 4px 8px;
+}
+input:hover{
+	box-shadow: 1px 1px 2px green, 0 0 5px green, 0 0 3px green;
+	border: 1.5px solid green;
+	color:green;	
 }

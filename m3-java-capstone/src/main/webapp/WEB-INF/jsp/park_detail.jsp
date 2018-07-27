@@ -3,11 +3,14 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 <form method="get" action=""><script>var tips=[""];</script>
-<table class="detail_description center">
+<table class="detail_description">
 	<tr><td colspan="5"><h4>${park.getDescription()}</h4></td></tr>
+	<tr>
+    		<td colspan="5">&nbsp;</td>
+    </tr>
     <tr>
     		<td class="field_label">Acerage:</td><td class="field_value"><fmt:formatNumber value="${park.getAcreage()}" /></td>
-	    	<td class="field_label">Elevation:</td><td class="field_value" colspan="2"><fmt:formatNumber value="${park.getElevationInFeet()}"/> ft</td>
+	    	<td class="field_label">Elevation:</td><td class="field_value" colspan="2"><fmt:formatNumber value="${park.getElevationInFeet()}"/> FT</td>
     </tr>
     <tr>
     		<td class="field_label">Miles of Trail:</td><td class="field_value"><fmt:formatNumber type = "number" 
@@ -29,7 +32,7 @@
     		<c:url var="units" value="C"/>
     		<input type="hidden" name="weather_units" value="fahrenheit">
     		<input type="hidden" name="code" value="${code}">
-    		<input type="submit" value="Convert Units To Fahrenheit">
+    		<input type="submit" value="Convert Units To Fahrenheit" style="border: thin solid blue;">
     </c:when>
     <c:otherwise>
     		<c:url var="units" value="F"/>
@@ -95,17 +98,14 @@
 function fnShowTip(dayNum){
 	var tipBox = document.getElementById("weather_tip");
 	var $dayTitle = document.getElementById("day_title_" + dayNum).innerHTML;
-	tipBox.innerHTML = "<b>" + $dayTitle + "</b><br>";
-	tipBox.innerHTML += tips[dayNum];
+	tipBox.innerHTML = "<b>Weather Tips for " + $dayTitle + "</b><br>";
+	if (tips[dayNum] == "") tipBox.innerHTML += "Looks like great weather! Enjoy the day!";
+	else tipBox.innerHTML += tips[dayNum];
 	tipBox.style="visibility: visible;"
 }
 function fnHideTip(){
-//	var tipBox = document.getElementById("weather_tip");
-//	tipBox.innerHTML = tips[1];
-	//tipBox.style="visibility: hidden;"
 	fnShowTip(1);
 }
-//Load the initial day's tip
 fnShowTip(1);
 </script>
 <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
