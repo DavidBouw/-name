@@ -5,20 +5,29 @@
 
 <c:url var="formAction" value="/survey" />
 <form method="POST" action="${formAction}">
-<div class="formInputGroup">
-	<label for="name">Favorite National Park</label> 
+<h2>National Parks Survey</h2>
+<h3>Tell Us What You Think</h3>
+<br>
+<table class="survey" cellspacing="5">
+<tr>
+	<td><label for="name">Favorite National Park:</label> </td>
+	<td>
 	<select name="name">
 		<c:forEach items="${requestScope.parksToSurvey}" var="park">
 			<option value="${park.value.code}">${park.value.name}</option>
 		</c:forEach>
 	</select>
-</div>
-<div class="formInputGroup">
-	<label for="emailAddress">Your email</label> 
-	<input type="email" name="emailAddress" required="required"/>
-</div>
-<div class="formInputGroup">
-	<label for="stateOfResidence">State of residence</label> 
+	</td>
+</tr>
+<tr>
+	<td><label for="emailAddress">Your email:</label></td>
+	<td>
+		<input type="email" name="emailAddress" required="required"/>
+	</td>
+</tr>
+<tr>
+	<td><label for="stateOfResidence">State of residence:</label></td> 
+	<td>
 	<select name="stateOfResidence">
 		<option value="AK">AK</option>
 		<option value="AL">AL</option>
@@ -69,11 +78,11 @@
 		<option value="WI">WI</option>
 		<option value="WV">WV</option>
 		<option value="WY">WY</option>
-	</select>
-</div>
-<div class="formInputGroup">
-	<label>Activity Level</label>
-	           
+	</select>	</td>
+</tr>
+<tr>
+	<td>	<label>Activity Level:</label></td>
+	<td>
        <input type = "radio"
        		   id = "Easy"
               name = "activityLevel"
@@ -95,7 +104,9 @@
               name = "activityLevel"
               value = "extreme" />
        <label for="Extreme">Extreme</label> 
-   </div>
+	</td>
+</tr>
+</table>
 <input class="formSubmitButton" type="submit" value="Submit" />
 </form>
 

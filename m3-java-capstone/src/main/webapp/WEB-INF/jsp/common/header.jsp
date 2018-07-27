@@ -23,7 +23,8 @@
 	<nav>
 		<ul>
 		<li><a href="home">Home</a></li>
-		<li><a href="survey">Survey</a></li>
+		<li><a href="favorites">Favorite Parks</a></li>
+		<li><a href="survey">Take Survey</a></li>
 		</ul>
 	</nav>
 	<div class="main_content">
