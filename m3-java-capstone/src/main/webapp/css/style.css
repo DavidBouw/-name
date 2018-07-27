@@ -156,10 +156,12 @@ hr {
 	border-width: 0 0 1px 0;
 	border-color: black;
 	font: bold 12pt Arial;
+	width: 30%;
 }
 .field_value{
 	font: normal 12pt Arial;
 	border-width: 0 0 1px 0;
+	width: 20%;
 }
 .details_footer{
 	position: relative;
@@ -209,7 +211,8 @@ hr {
 	padding: 10px;
 }
 .weather_tip{
-	width: 150px;
+	visibility: visible;
+	width: auto;
 	height: 300px;
 	background-color: lightgrey;
 	border-radius: 10px;

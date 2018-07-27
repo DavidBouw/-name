@@ -2,7 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-<form method="get" action="">
+<form method="get" action=""><script>var tips=[""];</script>
 <table class="detail_description center">
 	<tr><td colspan="4"><h4>${park.getDescription()}</h4></td></tr>
     <tr>
@@ -38,9 +38,7 @@
     		<input type="submit" value="Convert Units To Celcius">
     </c:otherwise>
     </c:choose>
-    		
-    		
-    		
+
     		&nbsp;&nbsp;
     		</td>
     </tr>
@@ -78,19 +76,33 @@
  			<c:url var="img" value="${daily_forecast.getForecast()}"/>     
     		</c:otherwise>
 	</c:choose>
-		    <td class="${css}" nowrap><div class="weather_card"><h3>${weekday_name}</h3><br>
+		    <td class="${css}" nowrap><div class="weather_card" onmouseover="fnShowTip(${daily_forecast.getFiveDayForecastValue()})"
+		    onmouseout="fnHideTip()"><h3>${weekday_name}</h3><br>
 		    	${daily_forecast.getForecast()}<br>
 		    <img src="img/weather/${img}.png"><br>
 		    <span class="weather_label">High:</span> <span class="weather_value">${daily_forecast.getConvertedLow(weather_units)}&deg;${units}</span> 
 		    <span class="weather_label"> Low:</span> <span class="weather_value">${daily_forecast.getConvertedHigh(weather_units)}&deg;${units}</span>
-		    	</div><div class="weather_tip">${daily_forecast.getWeatherTips()}</div></td>
+		    	</div><script>tips.push('${daily_forecast.getWeatherTips()}');</script></td>
     </c:when>    
 	</c:choose>
     </c:forEach>
     </tr>
+    <tr><td colspan="4"><span class="weather_tip" id="weather_tip">weather tips</span></td></tr>
     </table>
     </td></tr>
 </table>
+<script language="javascript">
+function fnShowTip(dayNum){
+	var tipBox = document.getElementById("weather_tip");
+	tipBox.innerHTML = tips[dayNum];
+	tipBox.style="visibility: visible;"
+}
+function fnHideTip(){
+	var tipBox = document.getElementById("weather_tip");
+	tipBox.innerHTML = "";
+	tipBox.style="visibility: hidden;"
+}
+</script>
 <img src="img/parks/${park.getCode().toLowerCase()}.jpg" class="park_image_detail center">
 <div class="park_detail_title center">${park.getName()}</div>
 <div class="figcaption center">${park.getInspirationalQuote()} - ${park.getInspirationalQuoteSource()}</div>
