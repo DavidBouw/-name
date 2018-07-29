@@ -54,6 +54,9 @@ public class MainController {
 		}
 		else request.setAttribute("weather_units", "fahrenheit");
 		
+		//load the park zipcode into request attribute
+		request.setAttribute("zipcode", getZipCode(codeStr));
+		
 		//Get the five day weather data
 		ArrayList<Forecast> forecastList = (ArrayList<Forecast>)forecastDao.getFiveDayForecast();
 		request.setAttribute("forecastList", forecastList);
@@ -72,6 +75,22 @@ public class MainController {
 	@RequestMapping(path= {"/weather","weather"})
 	public String displayWeatherJSPage() {
 		return "weather";
+	}
+	
+	public String getZipCode(String code) {
+		if (code.equals(null)) return null;
+		if (code.equals("")) return null;
+		if (code.equals("MRNP")) return "20712";
+		else if (code.equals("ENP")) return "34139";
+		else if (code.equals("GNP")) return "59434";
+		else if (code .equals("CVNP")) return "44141";
+		else if (code.equals("YNP")) return "82190";
+		else if (code.equals("RMNP")) return "80517";
+		else if (code.equals("GSMNP")) return "37738";
+		else if (code.equals("GTNP")) return "83012";
+		else if (code.equals("YNP2")) return "95389";
+		else if (code.equals("GCNP")) return "86023";
+		else return null;
 	}
 	
 }
