@@ -6,10 +6,6 @@
 	<title>National Parks Geek</title>
 	<c:url value="/css/style.css" var="cssHref" />
 	<link rel="stylesheet" href="css/style.css">
-<c:choose><c:when test="<%=request.getRequestURI().contains(\"weather_realtime.js\")%>">
-	    <link rel="stylesheet" href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
-</c:when></c:choose>
-	
     <script src="https://s3.amazonaws.com/codecademy-content/projects/jquery.min.js"></script>	
     
 </head>

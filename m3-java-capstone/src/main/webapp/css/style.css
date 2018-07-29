@@ -260,28 +260,45 @@ input[type=submit]:hover{
 /*########################################*/
 /*##########  weather css below ##########*/
 /*########################################*/
-
-
-
-.main {
-  height: 100%;
+.forecast{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: row;
+	white-space: nowrap;
+	}
+#hourly_container {
+	margin:  15px 0 0 5px;
+	width:618px;
+}
+.hourly_display{
+	background-color: #c5d6e6;
+	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
+	padding: 0px;
+	margin: 0 0 0 0;
+	border: thin solid black;
+	border-radius: 5px;
+	visibility: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-evenly;
+	width: 550px;
+	font: bold 10pt arial;
 }
 .title{
-  width:100%;
+	width:620px;
 }
-
-.table_main {
+#theTemp, #theTitle{
+	font: bold 16pt arial;	
+	margin: 0 5px 0 5px;
 }
-.table_cell {
-  padding: 15px; 
-}
-.forecast{
-  width: auto;
-}
-
 .day {
-  cursor: pointer;
-  	padding:10px;
+	cursor: pointer;
+	padding:0 10px 10px 10px;
 	box-shadow: 1px 1px 2px black, 0 0 15px #006ecb, 0 0 3px darkgrey;
 	border-width:2px;
 	border-color: #006ecb;
@@ -290,29 +307,37 @@ input[type=submit]:hover{
 	margin: 5px;
 	background-color: white;
 	color:#006ecb;
-	display: inline-block;
-	height: 160px;
+	height: 140px;
+	width: 92px;
 }
-
-.day > div {
-  white-space: nowrap;
+.day:hover{
+	box-shadow: 1px 1px 2px green, 0 0 15px green, 0 0 3px green;
+	border-width:2px;
+	border-color: #006ecb;
+	border-style: solid;
+	color: white;
+	background-color: #2274c5;
 }
-
-.weekday span {
-  font-size: 10px;
+.day:hover > .weather > div > img{
+	border: 2px solid white;
 }
-
-.weekday p {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0 0 0 10px;
+.weekday {
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+  	font-weight: bold;	
+  	margin: 0;
+  	padding:0;
+  	line-height: 6px;;
 }
 
 .weather img {
-  width: 80px;
-  border-radius: 40px;
-  margin: 0 0 0 7px;
+	width: 80px;
+	border: 2px solid white;
+	border-radius: 40px;
+	margin: 3px 0 3px 6px;
+	display: flex;
+	justify-content: center;
 }
 
 .high p,
@@ -320,38 +345,35 @@ input[type=submit]:hover{
 .hourly .temp {
   font-size: 16px;
 }
-.high {
-	display: table-row;
+.temp {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: row;
+	margin: 5px 0 0 0;
+	font: normal 11pt arial;
+	justify-content: space-around;
 }
-.high_cell,
-.low_cell {
-	padding: 10px 10px 0 10px;
-	white-space: nowrap;
-	display: table-cell;
+.hourly{
+	visibility: hidden;
+	position: absolute;
 }
-.hourly {
-  background-color: white;
-  padding: 20px;
-  margin: 5px;
-  border: thin solid black;
-  border-radius: 10px;
-}
-
-.hourly .hour {
+.hour {
   font-weight: bold;
   font-size: 16px;
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
 }
-
-.hourly img {
-  width: 24px;
-  border-radius: 12px;
-}
-
-.hourly p {
-  font-weight:bold;
+.hourly_display img {
+  width: 30px;
+  border-radius: 15px;
 }
 .time {
   font-weight: bold;
+  display:flex;
+  justify-content: center;
 }
 
 @media (max-width: 720px) {
@@ -359,10 +381,25 @@ input[type=submit]:hover{
     background: rgba(255,255,255,0.8);
   }
 }
-
 .time_cell{
-  width: 44px;
-  float: right;
-  font-weight: bold;
-/*  border: 1px solid blue; */
+	width: 44px;
+	font-weight: bold;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin: 5px 0 5px 0;
+}
+.time_cell ~ div {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.show{
+	visibility: visible;
+}
+.hide{
+	visibility: hidden;
 }

@@ -70,7 +70,6 @@ h2 {
 
 .hourly {
   text-align: center;
-  display: none;
   border-top: 1px solid lightblue;
   border-bottom: 1px solid lightblue;
   background-color: rgb(176, 211, 228);
@@ -101,7 +100,6 @@ h2 {
 
 .time_cell{
   width: 44px;
-  float: right;
   font-weight: bold;
 /*  border: 1px solid blue; */
 }

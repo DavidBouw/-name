@@ -8,14 +8,14 @@ var tempLow = 0;
 
 function fnPrintDateRow(json, theDate, i, dateIndex){
   blob = document.getElementById("weekday" + dateIndex);
-  blob.innerHTML = '<span class="glyphicon glyphicon-plus"></span>&nbsp;';
+//  blob.innerHTML = '<span class="glyphicon glyphicon-plus"></span>&nbsp;';
   blob.innerHTML += '<p>' + weekdays[theDate.getDay()] + '</p>';
   blob = document.getElementById("ltemp" + dateIndex);
   tempLow = json.list[i].main.temp_min.toPrecision(2);
-  blob.innerHTML = "<p>" + tempLow + "&deg;</p>";
+  blob.innerHTML = tempLow + "&deg;" + temp_units;
   blob = document.getElementById("htemp" + dateIndex);
   tempHigh = json.list[i].main.temp_max.toPrecision(2);
-  blob.innerHTML = "<p>" + tempHigh + "&deg;</p>";
+  blob.innerHTML = tempHigh + "&deg;" + temp_units;
   blob = document.getElementById("icon" + dateIndex);
   var dayIcon = json.list[i].weather[0].icon;
   
@@ -31,10 +31,10 @@ function fnPrintHoursCell(json, theDate, i, dateIndex, hoursIndex){
   blob.innerHTML = timeStr;
   blob = document.getElementById("temp" + dateIndex + "_" + hoursIndex);
   theTemp = json.list[i].main.temp.toPrecision(2);
-  blob.innerHTML = theTemp + "&deg;";
-  if (tempLow > theTemp) {tempLow = theTemp;document.getElementById("ltemp" + dateIndex).innerHTML = "<p>" + tempLow + "&deg;</p>"}
+  blob.innerHTML = theTemp + "&deg;" + temp_units;
+  if (tempLow > theTemp) {tempLow = theTemp;document.getElementById("ltemp" + dateIndex).innerHTML =tempLow + "&deg;" + temp_units}
   blob = document.getElementById("icon"  + dateIndex + "_" + hoursIndex);
-  if (tempHigh < theTemp) {tempHigh = theTemp; document.getElementById("htemp" + dateIndex).innerHTML = "<p>" + tempHigh + "&deg;</p>";}
+  if (tempHigh < theTemp) {tempHigh = theTemp; document.getElementById("htemp" + dateIndex).innerHTML =tempHigh + "&deg;" + temp_units;}
   blob.innerHTML = '<img src="icons/' + icons[open_weather_icons.indexOf(json.list[i].weather[0].icon)] + '.png">';
 
 document.getElementById("htemp" + dateIndex)
@@ -48,8 +48,12 @@ function fnLoadForecast(json){
   var dateIndex = 0;
   var dt = json.list[0].dt;
   var theDate = new Date(dt * 1000);	
-  document.getElementById("theTitle").innerHTML = "<h2>&nbsp;" + theDate.toDateString() + "&nbsp;</h2>";
-  document.getElementById("theTemp").innerHTML = "<h2>" + json.list[0].main.temp.toPrecision(2) + "&deg;&nbsp;&nbsp;&nbsp;&nbsp;</h2>";
+//  document.getElementById("theTitle").innerHTML = theDate.toDateString();
+  options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  document.getElementById("theTitle").innerHTML = theDate.toLocaleString('en-US', options);
+  
+  
+  document.getElementById("theTemp").innerHTML = json.list[0].main.temp.toPrecision(2) + "&deg;" + temp_units;
   for (x=0; x<rows; x++){
     var dt = json.list[x].dt;
     var theDate = new Date(dt * 1000);

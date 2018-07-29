@@ -1,308 +1,310 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-<table class="title"><tr><td align="left"><div id="theTitle"></div></td><td align="center"><div id="theTemp"></div></td></tr></table>
-<table class="table_main"><tr><td class="table_cell">
-<table><tr><td>
+<table class="title">
+    <tr>
+        <td align="left">
+            <div id="theTitle"></div>
+        </td>
+        <td align="right">
+            <div id="theTemp"></div>
+        </td>
+    </tr>
+</table>
 <div class="forecast">
-<!--############################Day1#############################-->
-<div class="day">
-  <div class="weekday">
-    <div id="weekday0"></div>
-  </div>
-  <div class="weather">
-      <div id="icon0"></div>
-  </div>
-  <div class="high">
-    <div id="htemp0" class="high_cell"></div><div id="ltemp0" class=""></div>
-  </div>
-</div>  
-
-
-<div class="hourly row" id="hourlyRow0" >
-<div class="time_cell">
-  <div  id="time0_7"></div>
-  <div  id="icon0_7"></div>
-  <div id="temp0_7"></div>
-</div>
-<div class="time_cell">
-  <div  id="time0_6"></div>
-  <div  id="icon0_6"></div>
-  <div id="temp0_6"></div>
-</div>
-<div class="time_cell">
-  <div  id="time0_5"></div>
-  <div  id="icon0_5"></div>
-  <div id="temp0_5"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time0_4"></div>
-  <div  id="icon0_4"></div>
-  <div id="temp0_4"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time0_3"></div>
-  <div  id="icon0_3"></div>
-  <div id="temp0_3"></div>
-</div>
-<div class="time_cell">
-  <div  id="time0_2"></div>
-  <div  id="icon0_2"></div>
-  <div id="temp0_2"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time0_1"></div>
-  <div  id="icon0_1"></div>
-  <div id="temp0_1"></div>
-</div>
-<div class="time_cell">
-  <div id="time0_0"></div>
-  <div  id="icon0_0"></div>
-  <div id="temp0_0"></div>
-</div>
-
-</div>
-<!--############################Day2#############################-->
-<div class="day row">
-    <div class="weekday col-xs-4">
-      <div id="weekday1"></div>
+    <!--############################Day1#############################-->
+    <div class="day" id="0">
+        <div class="weekday">
+            <div id="weekday0"></div>
+        </div>
+        <div class="weather">
+            <div id="icon0"></div>
+        </div>
+        <div class="temp">
+            <div id="htemp0" class="high_cell"></div>
+            <div id="ltemp0" class=""></div>
+        </div>
     </div>
-    <div class="weather col-xs-4">
-        <div id="icon1"></div>
+    <!-- ###################Day 2#################### -->
+    <div class="day" id="1">
+        <div class="weekday">
+            <div id="weekday1"></div>
+        </div>
+        <div class="weather">
+            <div id="icon1"></div>
+        </div>
+        <div class="temp">
+            <div id="htemp1" class="high_cell"></div>
+            <div id="ltemp1" class=""></div>
+        </div>
     </div>
-    <div class="high col-xs-2">
-      <div id="htemp1"></div>
+    <!--############################Day3#############################-->
+    <div class="day" id="2">
+        <div class="weekday">
+            <div id="weekday2"></div>
+        </div>
+        <div class="weather">
+            <div id="icon2"></div>
+        </div>
+        <div class="temp">
+            <div id="htemp2" class="high_cell"></div>
+            <div id="ltemp2" class=""></div>
+        </div>
     </div>
-    <div class="low col-xs-2">
-      <div id="ltemp1" style="text-align: right;"></div>
+    <!--#########################Day4####################-->
+    <div class="day" id="3">
+        <div class="weekday">
+            <div id="weekday3"></div>
+        </div>
+        <div class="weather">
+            <div id="icon3"></div>
+        </div>
+        <div class="temp">
+            <div id="htemp3" class="high_cell"></div>
+            <div id="ltemp3" class=""></div>
+        </div>
     </div>
-</div>  
-<div class="hourly row" id="hourlyRow1" >
-  <div class="time_cell">
-    <div  id="time1_7"></div>
-    <div  id="icon1_7"></div>
-    <div id="temp1_7"></div>
-  </div>
-  <div class="time_cell">
-    <div  id="time1_6"></div>
-    <div  id="icon1_6"></div>
-    <div id="temp1_6"></div>
-  </div>
-  <div class="time_cell">
-    <div  id="time1_5"></div>
-    <div  id="icon1_5"></div>
-    <div id="temp1_5"></div>
-  </div>
-  <div  class="time_cell">
-    <div  id="time1_4"></div>
-    <div  id="icon1_4"></div>
-    <div id="temp1_4"></div>
-  </div>
-  <div  class="time_cell">
-    <div  id="time1_3"></div>
-    <div  id="icon1_3"></div>
-    <div id="temp1_3"></div>
-  </div>
-  <div class="time_cell">
-    <div  id="time1_2"></div>
-    <div  id="icon1_2"></div>
-    <div id="temp1_2"></div>
-  </div>
-  <div  class="time_cell">
-    <div  id="time1_1"></div>
-    <div  id="icon1_1"></div>
-    <div id="temp1_1"></div>
-  </div>
-  <div class="time_cell">
-    <div id="time1_0"></div>
-    <div  id="icon1_0"></div>
-    <div id="temp1_0"></div>
-  </div>
+    <!--#########################Day5####################-->
+    <div class="day" id="4">
+        <div class="weekday">
+            <div id="weekday4"></div>
+        </div>
+        <div class="weather">
+            <div id="icon4"></div>
+        </div>
+        <div class="temp">
+            <div id="htemp4" class="high_cell"></div>
+            <div id="ltemp4" class=""></div>
+        </div>
+    </div>
+</div> <!-- FORECAST DIV END -->
 
-</div>
-<!--############################Day3#############################-->
-<div class="day row">
-  <div class="weekday col-xs-4">
-    <div id="weekday2"></div>
-  </div>
-  <div class="weather col-xs-4">
-      <div id="icon2"></div>
-  </div>
-  <div class="high col-xs-2">
-    <div id="htemp2"></div>
-  </div>
-  <div class="low col-xs-2">
-    <div id="ltemp2" style="text-align: right;"></div>
-  </div>
-</div>  
-<div class="hourly row" id="hourlyRow2" >
-<div class="time_cell">
-  <div  id="time2_7"></div>
-  <div  id="icon2_7"></div>
-  <div id="temp2_7"></div>
-</div>
-<div class="time_cell">
-  <div  id="time2_6"></div>
-  <div  id="icon2_6"></div>
-  <div id="temp2_6"></div>
-</div>
-<div class="time_cell">
-  <div  id="time2_5"></div>
-  <div  id="icon2_5"></div>
-  <div id="temp2_5"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time2_4"></div>
-  <div  id="icon2_4"></div>
-  <div id="temp2_4"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time2_3"></div>
-  <div  id="icon2_3"></div>
-  <div id="temp2_3"></div>
-</div>
-<div class="time_cell">
-  <div  id="time2_2"></div>
-  <div  id="icon2_2"></div>
-  <div id="temp2_2"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time2_1"></div>
-  <div  id="icon2_1"></div>
-  <div id="temp2_1"></div>
-</div>
-<div class="time_cell">
-  <div id="time2_0"></div>
-  <div  id="icon2_0"></div>
-  <div id="temp2_0"></div>
-</div>
+    <div id="hourly_container">Click on the day to display the hourly weather forecast</div>
+    
+    <!-- ############Day 1 Hourly  #####################-->
+    <div class="hourly" id="hourlyRow0">
+        <div class="time_cell">
+            <div id="time0_7"></div>
+            <div id="icon0_7"></div>
+            <div id="temp0_7"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_6"></div>
+            <div id="icon0_6"></div>
+            <div id="temp0_6"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_5"></div>
+            <div id="icon0_5"></div>
+            <div id="temp0_5"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_4"></div>
+            <div id="icon0_4"></div>
+            <div id="temp0_4"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_3"></div>
+            <div id="icon0_3"></div>
+            <div id="temp0_3"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_2"></div>
+            <div id="icon0_2"></div>
+            <div id="temp0_2"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_1"></div>
+            <div id="icon0_1"></div>
+            <div id="temp0_1"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time0_0"></div>
+            <div id="icon0_0"></div>
+            <div id="temp0_0"></div>
+        </div>
+    </div>
+    <!--############################Day2 Hourly #############################-->
 
-</div>
-<!--#########################Day4####################-->
-<div class="day row">
-  <div class="weekday col-xs-4">
-    <div id="weekday3"></div>
-  </div>
-  <div class="weather col-xs-4">
-      <div id="icon3"></div>
-  </div>
-  <div class="high col-xs-2">
-    <div id="htemp3"></div>
-  </div>
-  <div class="low col-xs-2">
-    <div id="ltemp3" style="text-align: right;"></div>
-  </div>
-</div>  
-<div class="hourly row" id="hourlyRow3" >
-<div class="time_cell">
-  <div  id="time3_7"></div>
-  <div  id="icon3_7"></div>
-  <div id="temp3_7"></div>
-</div>
-<div class="time_cell">
-  <div  id="time3_6"></div>
-  <div  id="icon3_6"></div>
-  <div id="temp3_6"></div>
-</div>
-<div class="time_cell">
-  <div  id="time3_5"></div>
-  <div  id="icon3_5"></div>
-  <div id="temp3_5"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time3_4"></div>
-  <div  id="icon3_4"></div>
-  <div id="temp3_4"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time3_3"></div>
-  <div  id="icon3_3"></div>
-  <div id="temp3_3"></div>
-</div>
-<div class="time_cell">
-  <div  id="time3_2"></div>
-  <div  id="icon3_2"></div>
-  <div id="temp3_2"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time3_1"></div>
-  <div  id="icon3_1"></div>
-  <div id="temp3_1"></div>
-</div>
-<div class="time_cell">
-  <div id="time3_0"></div>
-  <div  id="icon3_0"></div>
-  <div id="temp3_0"></div>
-</div>
-</div>
-<!--#########################Day5####################-->
-<div class="day row">
-  <div class="weekday col-xs-4">
-    <div id="weekday4"></div>
-  </div>
-  <div class="weather col-xs-4">
-      <div id="icon4"></div>
-  </div>
-  <div class="high col-xs-2">
-    <div id="htemp4"></div>
-  </div>
-  <div class="low col-xs-2">
-    <div id="ltemp4" style="text-align: right"></div>
-  </div>
-</div>  
-<div class="hourly row" id="hourlyRow4" >
-<div class="time_cell">
-  <div  id="time4_7"></div>
-  <div  id="icon4_7"></div>
-  <div id="temp4_7"></div>
-</div>
-<div class="time_cell">
-  <div  id="time4_6"></div>
-  <div  id="icon4_6"></div>
-  <div id="temp4_6"></div>
-</div>
-<div class="time_cell">
-  <div  id="time4_5"></div>
-  <div  id="icon4_5"></div>
-  <div id="temp4_5"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time4_4"></div>
-  <div  id="icon4_4"></div>
-  <div id="temp4_4"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time4_3"></div>
-  <div  id="icon4_3"></div>
-  <div id="temp4_3"></div>
-</div>
-<div class="time_cell">
-  <div  id="time4_2"></div>
-  <div  id="icon4_2"></div>
-  <div id="temp4_2"></div>
-</div>
-<div  class="time_cell">
-  <div  id="time4_1"></div>
-  <div  id="icon4_1"></div>
-  <div id="temp4_1"></div>
-</div>
-<div class="time_cell">
-  <div id="time4_0"></div>
-  <div  id="icon4_0"></div>
-  <div id="temp4_0"></div>
-</div>
-</div>
+    <div class="hourly" id="hourlyRow1">
+        <div class="time_cell">
+            <div id="time1_7"></div>
+            <div id="icon1_7"></div>
+            <div id="temp1_7"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_6"></div>
+            <div id="icon1_6"></div>
+            <div id="temp1_6"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_5"></div>
+            <div id="icon1_5"></div>
+            <div id="temp1_5"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_4"></div>
+            <div id="icon1_4"></div>
+            <div id="temp1_4"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_3"></div>
+            <div id="icon1_3"></div>
+            <div id="temp1_3"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_2"></div>
+            <div id="icon1_2"></div>
+            <div id="temp1_2"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_1"></div>
+            <div id="icon1_1"></div>
+            <div id="temp1_1"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time1_0"></div>
+            <div id="icon1_0"></div>
+            <div id="temp1_0"></div>
+        </div>
 
-</div>
-</td></tr><table>
-</td></tr><table>
+    </div>
+    <!--############################Day3 Hourly #############################-->
 
-<div class="mypanel" id="mypanel" style="visibility:visible;"></div>
+    <div class="hourly" id="hourlyRow2">
+        <div class="time_cell">
+            <div id="time2_7"></div>
+            <div id="icon2_7"></div>
+            <div id="temp2_7"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_6"></div>
+            <div id="icon2_6"></div>
+            <div id="temp2_6"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_5"></div>
+            <div id="icon2_5"></div>
+            <div id="temp2_5"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_4"></div>
+            <div id="icon2_4"></div>
+            <div id="temp2_4"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_3"></div>
+            <div id="icon2_3"></div>
+            <div id="temp2_3"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_2"></div>
+            <div id="icon2_2"></div>
+            <div id="temp2_2"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_1"></div>
+            <div id="icon2_1"></div>
+            <div id="temp2_1"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time2_0"></div>
+            <div id="icon2_0"></div>
+            <div id="temp2_0"></div>
+        </div>
+
+    </div>
+    <!-- ######################DAY 4 HOURLY#################### -->
+    <div class="hourly" id="hourlyRow3">
+        <div class="time_cell">
+            <div id="time3_7"></div>
+            <div id="icon3_7"></div>
+            <div id="temp3_7"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_6"></div>
+            <div id="icon3_6"></div>
+            <div id="temp3_6"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_5"></div>
+            <div id="icon3_5"></div>
+            <div id="temp3_5"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_4"></div>
+            <div id="icon3_4"></div>
+            <div id="temp3_4"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_3"></div>
+            <div id="icon3_3"></div>
+            <div id="temp3_3"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_2"></div>
+            <div id="icon3_2"></div>
+            <div id="temp3_2"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_1"></div>
+            <div id="icon3_1"></div>
+            <div id="temp3_1"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time3_0"></div>
+            <div id="icon3_0"></div>
+            <div id="temp3_0"></div>
+        </div>
+    </div>
+    <!-- ##############################DAY 5 HOURLY ################## -->
+    <div class="hourly" id="hourlyRow4">
+        <div class="time_cell">
+            <div id="time4_7"></div>
+            <div id="icon4_7"></div>
+            <div id="temp4_7"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_6"></div>
+            <div id="icon4_6"></div>
+            <div id="temp4_6"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_5"></div>
+            <div id="icon4_5"></div>
+            <div id="temp4_5"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_4"></div>
+            <div id="icon4_4"></div>
+            <div id="temp4_4"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_3"></div>
+            <div id="icon4_3"></div>
+            <div id="temp4_3"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_2"></div>
+            <div id="icon4_2"></div>
+            <div id="temp4_2"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_1"></div>
+            <div id="icon4_1"></div>
+            <div id="temp4_1"></div>
+        </div>
+        <div class="time_cell">
+            <div id="time4_0"></div>
+            <div id="icon4_0"></div>
+            <div id="temp4_0"></div>
+        </div>
+    </div>
 
 
 <script>
-<c:import url="/js/weather.js" />
+    <c:import url="/js/weather.js" />
 
-
+var  temp_units = "F";
 //$.getJSON('https://api.openweathermap.org/data/2.5/forecast?zip=15218,us&apikey=ccb8c2661a426fea5eb9217a8f56cf80&units=imperial', function(data) {
 //      fnLoadForecast(data)
 //        $(".mypanel").html(JSON.stringify(data));document.getElementById("").inn;
@@ -315,8 +317,13 @@
 
  var main = function() {
   $(".day").click(function() {
-    $(this).next().toggle();
-    $(this).find('.weekday span').toggleClass('glyphicon-minus');
+//    $(this).next().toggle();
+//	$(".hourly_container").toggle();
+	var num=$(this).attr("id");
+//	$(".hourly_container").html($("hourlyRow" + num).attr("id"));
+	$("#hourly_container").html($("#hourlyRow" + num).html());
+	$("#hourly_container").addClass("hourly_display show");
+//    $(this).find('.weekday span').toggleClass('glyphicon-minus');
   });
 };
 
