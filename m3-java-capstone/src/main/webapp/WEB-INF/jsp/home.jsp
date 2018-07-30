@@ -4,9 +4,9 @@
 <c:forEach var="mapEntry" items="${allParks}" >
 <tr>
     <td class="parks_list" valign="top">
-    <a href="park_details?code=${mapEntry.value.getCode()}">
+    <a href="park_detail_live_weather?code=${mapEntry.value.getCode()}">
     <img src="img/parks/${mapEntry.value.getCode().toLowerCase()}.jpg" class="park_image_home" onmouseover="link(this);"onmouseout="unlink(this);"></a>
-	<a href="park_detail?code=${mapEntry.value.getCode()}"><h2>${mapEntry.value.getName()}</h2></a>
+	<a href="park_detail_live_weather?code=${mapEntry.value.getCode()}"><h2>${mapEntry.value.getName()}</h2></a>
     <h4>${mapEntry.value.getDescription()}</h4></td>
 </tr>
 </c:forEach>

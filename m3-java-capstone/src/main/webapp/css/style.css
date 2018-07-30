@@ -172,7 +172,7 @@ hr {
 }
 .details_footer{
 	position: relative;
-	top: 925px;
+/*	top: 925px;*/
 	width: 850px;
 }
 .weather_today{
@@ -269,8 +269,8 @@ input[type=submit]:hover{
 	white-space: nowrap;
 	}
 #hourly_container {
-	margin:  15px 0 0 5px;
-	width:618px;
+	margin:  15px 0 15px 5px;
+	width:830px;
 }
 .hourly_display{
 	background-color: #c5d6e6;
@@ -286,11 +286,11 @@ input[type=submit]:hover{
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-evenly;
-	width: 550px;
+	width: 750px;
 	font: bold 10pt arial;
 }
 .title{
-	width:620px;
+	width:820px;
 }
 #theTemp, #theTitle{
 	font: bold 16pt arial;	
@@ -303,12 +303,12 @@ input[type=submit]:hover{
 	border-width:2px;
 	border-color: #006ecb;
 	border-style: solid;
-	border-radius: 5px;
-	margin: 5px;
+	border-radius: 8px;
+	margin: 5px 15px 5px 15px;
 	background-color: white;
 	color:#006ecb;
-	height: 140px;
-	width: 92px;
+	height: 170px;
+	width: 115px;
 }
 .day:hover{
 	box-shadow: 1px 1px 2px green, 0 0 15px green, 0 0 3px green;
@@ -319,12 +319,12 @@ input[type=submit]:hover{
 	background-color: #2274c5;
 }
 .day:hover > .weather > div > img{
-	border: 2px solid white;
+	border: 3px solid white;
 }
 .weekday {
 	display: flex;
 	justify-content: center;
-	font-size: 16px;
+	font-size: 18px;
   	font-weight: bold;	
   	margin: 0;
   	padding:0;
@@ -333,9 +333,9 @@ input[type=submit]:hover{
 
 .weather img {
 	width: 80px;
-	border: 2px solid white;
+	border: 3px solid white;
 	border-radius: 40px;
-	margin: 3px 0 3px 6px;
+	margin: 5px 0 12px 15px;
 	display: flex;
 	justify-content: center;
 }
@@ -344,6 +344,10 @@ input[type=submit]:hover{
 .low p,
 .hourly .temp {
   font-size: 16px;
+}
+[id^="htemp"], [id^="ltemp"]{
+	font-weight: bold;
+	font-size: 12pt;
 }
 .temp {
 	display: -webkit-box;
